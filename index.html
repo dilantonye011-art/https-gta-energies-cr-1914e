@@ -6,58 +6,42 @@
 <title>CR Galeries & Égouts — GTA Energies · Mission 1914_E</title>
 <style>
   :root{
-    --bitume:#21262B;
-    --beton:#F1F2EF;
-    --carte:#FFFFFF;
-    --hv:#F5C400;
-    --hv-fonce:#C79E00;
-    --securite:#1E7A46;
-    --alerte:#C6432E;
-    --acier:#5B6570;
-    --ligne:#D8DBD6;
-    --radius:10px;
+    --bitume:#21262B; --beton:#F1F2EF; --carte:#FFFFFF; --hv:#F5C400;
+    --hv-fonce:#C79E00; --securite:#1E7A46; --alerte:#C6432E; --acier:#5B6570;
+    --ligne:#D8DBD6; --radius:10px;
     --display:'Barlow Condensed','Arial Narrow',Impact,sans-serif;
     --body:'Segoe UI',system-ui,-apple-system,Roboto,sans-serif;
     --mono:'Consolas','Courier New',monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--beton);color:var(--bitume);font-family:var(--body);font-size:15px;line-height:1.5}
-
   header{background:var(--bitume);color:#fff;padding:18px 22px 14px}
   .brand{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
   .brand h1{font-family:var(--display);font-size:34px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
   .brand h1 span{color:var(--hv)}
   .brand .mission{font-family:var(--mono);font-size:13px;color:#C9CED4}
   .hazard{height:10px;background:repeating-linear-gradient(-45deg,var(--hv) 0 14px,var(--bitume) 14px 28px)}
-
   nav{display:flex;gap:4px;background:var(--carte);border-bottom:1px solid var(--ligne);padding:0 14px;overflow-x:auto}
   nav button{appearance:none;border:none;background:none;cursor:pointer;padding:13px 16px;font-family:var(--display);font-size:19px;letter-spacing:.03em;text-transform:uppercase;color:var(--acier);border-bottom:3px solid transparent;white-space:nowrap}
   nav button:hover{color:var(--bitume)}
   nav button.actif{color:var(--bitume);border-bottom-color:var(--hv)}
-  nav button:focus-visible{outline:2px solid var(--hv);outline-offset:-2px}
   nav button .pastille{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--alerte);margin-left:5px;vertical-align:middle}
-
   main{max-width:960px;margin:0 auto;padding:22px 16px 80px}
   .vue{display:none}
   .vue.active{display:block}
-
   h2{font-family:var(--display);font-size:26px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:4px}
   .sous-titre{color:var(--acier);margin-bottom:18px;font-size:14px}
-
   .carte{background:var(--carte);border:1px solid var(--ligne);border-radius:var(--radius);padding:18px;margin-bottom:16px}
   .carte h3{font-family:var(--display);font-size:20px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px}
-
   label{display:block;font-weight:600;font-size:13px;margin:12px 0 5px}
   label:first-child{margin-top:0}
-  input[type=text],input[type=date],input[type=email],select,textarea{
+  input[type=text],input[type=date],input[type=email],input[type=password],select,textarea{
     width:100%;padding:9px 11px;border:1px solid var(--ligne);border-radius:6px;font-family:var(--body);font-size:15px;background:#FBFBFA;color:var(--bitume)}
   input:focus,select:focus,textarea:focus{outline:2px solid var(--hv);outline-offset:0;border-color:var(--hv-fonce)}
   textarea{min-height:84px;resize:vertical}
   .grille2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
   @media(max-width:640px){.grille2{grid-template-columns:1fr}}
-
   .btn{appearance:none;cursor:pointer;border:none;border-radius:7px;padding:10px 16px;font-weight:700;font-size:14px;font-family:var(--body)}
-  .btn:focus-visible{outline:2px solid var(--bitume);outline-offset:2px}
   .btn-hv{background:var(--hv);color:var(--bitume)}
   .btn-hv:hover{background:#FFD427}
   .btn-sombre{background:var(--bitume);color:#fff}
@@ -68,25 +52,19 @@
   .btn-danger:hover{background:#FBEDEA}
   .btn-petit{padding:6px 10px;font-size:13px}
   .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-
   .puces{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
   .puce{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ligne);border-radius:999px;padding:6px 12px;cursor:pointer;user-select:none;font-size:14px;background:#FBFBFA}
-  .puce input{accent-color:var(--bitume)}
   .puce.coche{background:var(--bitume);color:#fff;border-color:var(--bitume)}
-
   .liste-incidents{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin-top:4px}
   @media(max-width:640px){.liste-incidents{grid-template-columns:1fr}}
   .liste-incidents label{display:flex;align-items:center;gap:8px;font-weight:500;margin:0;padding:7px 10px;border:1px solid var(--ligne);border-radius:6px;cursor:pointer;background:#FBFBFA}
-  .liste-incidents input{accent-color:var(--alerte);width:16px;height:16px}
   .liste-incidents label.coche{border-color:var(--alerte);background:#FBEDEA}
-
   .zone-photos{border:2px dashed var(--ligne);border-radius:8px;padding:14px;text-align:center;color:var(--acier);cursor:pointer;background:#FBFBFA}
   .zone-photos:hover{border-color:var(--hv-fonce)}
   .vignettes{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
   .vignette{position:relative;width:92px;height:92px;border-radius:6px;overflow:hidden;border:1px solid var(--ligne)}
   .vignette img{width:100%;height:100%;object-fit:cover}
   .vignette button{position:absolute;top:3px;right:3px;background:rgba(33,38,43,.85);color:#fff;border:none;border-radius:4px;width:22px;height:22px;cursor:pointer;font-size:13px;line-height:1}
-
   .cr-item{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:flex-start}
   .cr-item .infos{flex:1;min-width:220px}
   .cr-item .titre{font-family:var(--display);font-size:21px;text-transform:uppercase;letter-spacing:.02em}
@@ -97,27 +75,35 @@
   .badge-ok{background:var(--securite);color:#fff}
   .badge-incident{background:#FBEDEA;color:var(--alerte);border:1px solid var(--alerte)}
   .badge-ras{background:#EAF4EE;color:var(--securite);border:1px solid var(--securite)}
-
   .rappel{display:flex;gap:10px;align-items:flex-start;background:#FFF8DB;border:1px solid var(--hv-fonce);border-radius:8px;padding:12px 14px;margin-bottom:18px;font-size:14px}
-  .rappel b{white-space:nowrap}
   .chemin{font-family:var(--mono);font-size:12.5px;background:var(--bitume);color:var(--hv);border-radius:6px;padding:8px 10px;margin-top:10px;overflow-x:auto;white-space:nowrap}
-
   .vide{text-align:center;color:var(--acier);padding:30px 10px}
-  .bandeau-memoire{display:none;background:var(--alerte);color:#fff;padding:8px 14px;font-size:13px;text-align:center}
-
+  .bandeau-memoire,.bandeau-connexion,.bandeau-deconnecte{display:none;padding:8px 14px;font-size:13px;text-align:center;color:#fff}
+  .bandeau-memoire{background:var(--alerte)}
+  .bandeau-connexion{background:var(--securite)}
+  .bandeau-deconnecte{background:var(--alerte)}
   .jour{border:1px solid var(--ligne);border-radius:8px;padding:12px;margin-bottom:10px;background:#FBFBFA}
   .jour-entete{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
   .jour-entete input[type=date]{width:auto}
   .jour-entete .num{font-family:var(--display);font-size:18px;color:var(--acier);text-transform:uppercase}
-
   .filtres{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
   .filtres > div{flex:1;min-width:150px}
-
+  .auth-form{max-width:400px;margin:40px auto}
+  .auth-form .carte{padding:28px}
+  .auth-form h2{text-align:center;margin-bottom:8px}
+  .auth-form .sous-titre{text-align:center;margin-bottom:24px}
+  .auth-toggle{text-align:center;margin-top:16px;font-size:14px;color:var(--acier)}
+  .auth-toggle a{color:var(--bitume);cursor:pointer;text-decoration:underline;font-weight:600}
+  .user-bar{display:flex;align-items:center;gap:12px;justify-content:flex-end;padding:8px 22px;background:var(--bitume);color:#fff;font-size:13px}
+  .user-bar button{background:none;border:1px solid rgba(255,255,255,.3);color:#fff;padding:4px 10px;border-radius:4px;cursor:pointer;font-size:12px}
+  .user-bar button:hover{border-color:#fff}
+  .sync-indicator{display:inline-flex;align-items:center;gap:6px}
+  .sync-dot{width:8px;height:8px;border-radius:50%;background:var(--securite);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
   #zoneImpression{display:none}
   @media print{
     body>*{display:none !important}
     #zoneImpression{display:block !important;background:#fff}
-    #zoneImpression .hazard{height:8px;background:repeating-linear-gradient(-45deg,#F5C400 0 12px,#21262B 12px 24px)}
     .page-cr{padding:6mm;font-size:12.5px}
     .page-cr h1{font-family:var(--display);font-size:22px;text-transform:uppercase;text-align:center}
     .page-cr .sous-entete{text-align:center;font-family:var(--mono);font-size:11.5px;color:#444;margin-top:2px;margin-bottom:8px}
@@ -132,175 +118,173 @@
     .page-cr .badge-print-ok{border-color:#1E7A46;color:#1E7A46;background:#EAF4EE}
   }
 </style>
+<base target="_blank">
 </head>
 <body>
 
-<div class="bandeau-memoire" id="bandeauMemoire">⚠ Stockage indisponible : les données ne seront pas conservées à la fermeture de la page.</div>
+<div class="bandeau-memoire" id="bandeauMemoire">Mode hors-ligne : les donnees sont stockees localement et seront synchronisees a la reconnexion.</div>
+<div class="bandeau-connexion" id="bandeauConnexion">Connecte a Supabase — synchronisation active</div>
+<div class="bandeau-deconnecte" id="bandeauDeconnecte">Deconnecte — verifiez votre connexion internet</div>
 
 <header>
   <div class="brand">
     <h1>GTA <span>Energies</span></h1>
-    <div class="mission">Mission 1914_E · Relevé des galeries & égouts · Suivi terrain & CR</div>
+    <div class="mission">Mission 1914_E · Releve des galeries & egouts · Suivi terrain & CR</div>
   </div>
 </header>
 <div class="hazard"></div>
 
-<nav>
+<div class="user-bar" id="userBar" style="display:none">
+  <span class="sync-indicator" id="syncIndicator"><span class="sync-dot"></span> Synchro active</span>
+  <span id="userEmail"></span>
+  <button id="btnDeconnexion">Deconnexion</button>
+</div>
+
+<nav id="mainNav" style="display:none">
   <button data-vue="planning" class="actif">Planning</button>
   <button data-vue="nouveau">Nouveau CR</button>
-  <button data-vue="historique">Historique CR <span id="compteurCR"></span><span id="pastilleUrgent" class="pastille" style="display:none" title="CR en retard"></span></button>
-  <button data-vue="equipe">Équipe</button>
+  <button data-vue="historique">Historique CR <span id="compteurCR"></span><span id="pastilleUrgent" class="pastille" style="display:none"></span></button>
+  <button data-vue="equipe">Equipe</button>
 </nav>
 
 <main>
 
-  <!-- ================= PLANNING ================= -->
-  <section class="vue active" id="vue-planning">
-    <h2>Planning hebdomadaire</h2>
-    <p class="sous-titre">Le planning change chaque semaine : créez une nouvelle semaine, ajoutez les journées de terrain et affectez les exécutants.</p>
+  <!-- AUTH -->
+  <section class="vue active" id="vue-auth">
+    <div class="auth-form">
+      <div class="carte" id="authCard">
+        <h2 id="authTitre">Connexion</h2>
+        <p class="sous-titre">Acces reserve a l'equipe GTA Energies — Mission 1914_E</p>
+        <div id="authChamps">
+          <label for="authEmail">Adresse e-mail</label>
+          <input type="email" id="authEmail" placeholder="votre.email@exemple.com">
+          <label for="authPassword">Mot de passe</label>
+          <input type="password" id="authPassword" placeholder="Votre mot de passe">
+          <div id="authNomBloc" style="display:none">
+            <label for="authNom">Nom complet</label>
+            <input type="text" id="authNom" placeholder="Ex. : A. TCHADJEU">
+          </div>
+        </div>
+        <div class="actions" style="margin-top:20px">
+          <button class="btn btn-hv" id="btnAuthAction" style="width:100%">Se connecter</button>
+        </div>
+        <div class="auth-toggle">
+          <span id="authToggleText">Pas encore de compte ? <a id="authToggleLink">Creer un compte</a></span>
+        </div>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--ligne);font-size:13px;color:var(--acier);text-align:center">
+          <p><b>Mode hors-ligne disponible</b></p>
+          <p style="margin-top:4px">Sans connexion, vos donnees restent sur cet appareil et seront synchronisees plus tard.</p>
+          <button class="btn btn-ligne btn-petit" id="btnModeHorsLigne" style="margin-top:10px">Continuer hors-ligne</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- PLANNING -->
+  <section class="vue" id="vue-planning">
+    <h2>Planning hebdomadaire</h2>
+    <p class="sous-titre">Le planning change chaque semaine : creez une nouvelle semaine, ajoutez les journees de terrain et affectez les executants.</p>
     <div class="carte">
       <div style="display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap">
         <div style="flex:1;min-width:220px">
-          <label for="selSemaine">Semaine affichée</label>
+          <label for="selSemaine">Semaine affichee</label>
           <select id="selSemaine"></select>
         </div>
         <button class="btn btn-hv" id="btnNouvelleSemaine">+ Nouvelle semaine</button>
         <button class="btn btn-ligne" id="btnDupliquerSemaine">Dupliquer cette semaine</button>
         <button class="btn btn-danger btn-petit" id="btnSupprSemaine">Supprimer la semaine</button>
       </div>
-      <div class="chemin">N:\\DOSSIERS 2026\\1914_E\\Travail\\SAU - preparation terrain\ &nbsp;→ 1 dossier par semaine, 1 sous-dossier par journée de terrain</div>
+      <div class="chemin">N:\\DOSSIERS 2026\\1914_E\\Travail\\SAU - preparation terrain\ &nbsp;→ 1 dossier par semaine, 1 sous-dossier par journee de terrain</div>
     </div>
-
     <div id="conteneurSemaine"></div>
   </section>
 
-  <!-- ================= NOUVEAU CR ================= -->
+  <!-- NOUVEAU CR -->
   <section class="vue" id="vue-nouveau">
     <h2 id="titreNouveauCR">Nouveau compte-rendu</h2>
-    <p class="sous-titre">À rédiger après chaque intervention. Obligatoire dès qu'un incident est remarqué lors de la visite.</p>
-
+    <p class="sous-titre">A rediger apres chaque intervention. Obligatoire des qu'un incident est remarque lors de la visite.</p>
     <div class="rappel">
       <span>⏱</span>
-      <div><b>Délai contractuel : 24 h</b> pour envoyer le CR à Mario DE JESUS (GTA GE) — <span style="font-family:var(--mono)">m.dejesus@gtage.fr</span>. Le compte à rebours démarre à l'enregistrement du CR.</div>
+      <div><b>Delai contractuel : 24 h</b> pour envoyer le CR a Mario DE JESUS (GTA GE) — <span style="font-family:var(--mono)">m.dejesus@gtage.fr</span>. Le compte a rebours demarre a l'enregistrement du CR.</div>
     </div>
-
     <div class="carte">
       <h3>Intervention</h3>
       <div class="grille2">
-        <div>
-          <label for="crDate">Date de l'intervention</label>
-          <input type="date" id="crDate">
-        </div>
-        <div>
-          <label for="crSecteur">Secteur / galerie / ouvrage</label>
-          <input type="text" id="crSecteur" placeholder="Ex. : Galerie G12 — tronçon BR 45 à BR 52">
-        </div>
+        <div><label for="crDate">Date de l'intervention</label><input type="date" id="crDate"></div>
+        <div><label for="crSecteur">Secteur / galerie / ouvrage</label><input type="text" id="crSecteur" placeholder="Ex. : Galerie G12 — troncon BR 45 a BR 52"></div>
       </div>
-      <label>Exécutants présents</label>
+      <label>Executants presents</label>
       <div class="puces" id="crExecutants"></div>
-      <label for="crTravaux">Travaux réalisés</label>
-      <textarea id="crTravaux" placeholder="Ex. : aide à l'installation de la lumière, déplacement du matériel des géomètres (sphères), accompagnement du relevé…"></textarea>
+      <label for="crTravaux">Travaux realises</label>
+      <textarea id="crTravaux" placeholder="Ex. : aide a l'installation de la lumiere, deplacement du materiel des geometres (spheres), accompagnement du releve…"></textarea>
     </div>
-
     <div class="carte">
-      <h3>Photos BR accès (vue panoramique)</h3>
-      <div class="zone-photos" id="zoneAcces">📷 Ajouter des photos des BR accès — cliquez ou déposez</div>
+      <h3>Photos BR acces (vue panoramique)</h3>
+      <div class="zone-photos" id="zoneAcces">📷 Ajouter des photos des BR acces — cliquez ou deposez</div>
       <input type="file" id="fichAcces" accept="image/*" multiple hidden>
       <div class="vignettes" id="vignAcces"></div>
     </div>
-
     <div class="carte">
-      <h3>Incidents remarqués</h3>
+      <h3>Incidents remarques</h3>
       <div class="liste-incidents" id="crIncidents"></div>
       <label for="crIncidentDesc">Description / localisation des incidents <span style="color:var(--alerte)">*</span></label>
-      <textarea id="crIncidentDesc" placeholder="Précisez la nature, la localisation (n° de BR, tronçon) et l'ampleur…"></textarea>
+      <textarea id="crIncidentDesc" placeholder="Precisez la nature, la localisation (n° de BR, troncon) et l'ampleur…"></textarea>
       <label>Photos des incidents</label>
-      <div class="zone-photos" id="zoneIncident">📷 Ajouter des photos des incidents — cliquez ou déposez</div>
+      <div class="zone-photos" id="zoneIncident">📷 Ajouter des photos des incidents — cliquez ou deposez</div>
       <input type="file" id="fichIncident" accept="image/*" multiple hidden>
       <div class="vignettes" id="vignIncident"></div>
     </div>
-
     <div class="carte">
-      <h3>Observations & suites à donner</h3>
-      <textarea id="crObs" placeholder="Remarques diverses, points de vigilance, matériel à prévoir…"></textarea>
+      <h3>Observations & suites a donner</h3>
+      <textarea id="crObs" placeholder="Remarques diverses, points de vigilance, materiel a prevoir…"></textarea>
     </div>
-
     <div class="actions">
       <button class="btn btn-hv" id="btnEnregistrerCR">Enregistrer le CR</button>
       <button class="btn btn-ligne" id="btnViderCR">Vider le formulaire</button>
     </div>
   </section>
 
-  <!-- ================= HISTORIQUE ================= -->
+  <!-- HISTORIQUE -->
   <section class="vue" id="vue-historique">
     <h2>Historique des CR</h2>
-    <p class="sous-titre">Aperçu, impression PDF, préparation de l'e-mail et suivi du délai de 24 h.</p>
-
+    <p class="sous-titre">Apercu, impression PDF, preparation de l'e-mail et suivi du delai de 24 h.</p>
     <div class="carte filtres">
-      <div>
-        <label for="filtreTexte">Recherche (secteur)</label>
-        <input type="text" id="filtreTexte" placeholder="Ex. : Galerie G12">
-      </div>
-      <div>
-        <label for="filtreDateDebut">Du</label>
-        <input type="date" id="filtreDateDebut">
-      </div>
-      <div>
-        <label for="filtreDateFin">Au</label>
-        <input type="date" id="filtreDateFin">
-      </div>
-      <div>
-        <label for="filtreStatut">Statut</label>
-        <select id="filtreStatut">
-          <option value="">Tous</option>
-          <option value="a_envoyer">À envoyer</option>
-          <option value="envoye">Envoyé</option>
-          <option value="incident">Avec incident(s)</option>
-        </select>
-      </div>
-      <div style="flex:0 0 auto">
-        <button class="btn btn-ligne btn-petit" id="btnReinitFiltres">Réinitialiser</button>
-      </div>
+      <div><label for="filtreTexte">Recherche (secteur)</label><input type="text" id="filtreTexte" placeholder="Ex. : Galerie G12"></div>
+      <div><label for="filtreDateDebut">Du</label><input type="date" id="filtreDateDebut"></div>
+      <div><label for="filtreDateFin">Au</label><input type="date" id="filtreDateFin"></div>
+      <div><label for="filtreStatut">Statut</label><select id="filtreStatut"><option value="">Tous</option><option value="a_envoyer">A envoyer</option><option value="envoye">Envoye</option><option value="incident">Avec incident(s)</option></select></div>
+      <div style="flex:0 0 auto"><button class="btn btn-ligne btn-petit" id="btnReinitFiltres">Reinitialiser</button></div>
     </div>
-
     <div class="actions" style="margin-top:0;margin-bottom:16px">
       <button class="btn btn-sombre btn-petit" id="btnExporterCSV">⬇ Exporter la liste (CSV)</button>
       <button class="btn btn-ligne btn-petit" id="btnExporterPDF">⬇ Exporter PDF</button>
     </div>
-
     <div id="listeCR"></div>
   </section>
 
-  <!-- ================= ÉQUIPE ================= -->
+  <!-- EQUIPE -->
   <section class="vue" id="vue-equipe">
-    <h2>Équipe — exécutants</h2>
-    <p class="sous-titre">Cette liste alimente le planning et les comptes-rendus.</p>
-
+    <h2>Equipe — executants</h2>
+    <p class="sous-titre">Cette liste alimente le planning et les comptes-rendus. Partagee entre tous les utilisateurs.</p>
     <div class="carte">
       <h3>Sauvegarde & restauration</h3>
-      <p class="sous-titre" style="margin-bottom:10px">Exportez un fichier de secours régulièrement, notamment avant une intervention sans connexion.</p>
+      <p class="sous-titre" style="margin-bottom:10px">Exportez un fichier de secours regulierement, notamment avant une intervention sans connexion.</p>
       <div class="actions" style="margin-top:0">
         <button class="btn btn-sombre" id="btnExporter">⬇ Exporter (JSON)</button>
         <button class="btn btn-ligne" id="btnImporter">⬆ Importer un fichier</button>
       </div>
       <input type="file" id="fichImport" accept="application/json" hidden>
     </div>
-
     <div class="carte">
       <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
-        <div style="flex:1;min-width:200px">
-          <label for="nvExec">Nom de l'exécutant</label>
-          <input type="text" id="nvExec" placeholder="Ex. : A. TCHADJEU">
-        </div>
+        <div style="flex:1;min-width:200px"><label for="nvExec">Nom de l'executant</label><input type="text" id="nvExec" placeholder="Ex. : A. TCHADJEU"></div>
         <button class="btn btn-sombre" id="btnAjoutExec">Ajouter</button>
       </div>
       <div class="puces" id="listeEquipe" style="margin-top:14px"></div>
     </div>
     <div class="carte">
       <h3>Contact destinataire des CR</h3>
-      <p>Mario DE JESUS (GTA GE) — <span style="font-family:var(--mono)">m.dejesus@gtage.fr</span><br>
-      <span style="color:var(--acier);font-size:13px">Envoi contractuel sous 24 h après l'intervention.</span></p>
+      <p>Mario DE JESUS (GTA GE) — <span style="font-family:var(--mono)">m.dejesus@gtage.fr</span><br><span style="color:var(--acier);font-size:13px">Envoi contractuel sous 24 h apres l'intervention.</span></p>
     </div>
   </section>
 
@@ -308,56 +292,34 @@
 
 <div id="zoneImpression"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
+
 /* ============================================================
-   CR Galeries & Égouts — GTA Energies · Mission 1914_E
-   Persistance via localStorage (fiable, hors-ligne, pas de backend)
+   CR Galeries & Egouts — GTA Energies · Mission 1914_E
+   Multi-utilisateurs via Supabase (Auth + DB + Storage)
+   Fallback localStorage en mode hors-ligne
    ============================================================ */
 
+// === CONFIGURATION SUPABASE ===
+const SUPABASE_URL = 'https://VOTRE-PROJET.supabase.co';
+const SUPABASE_KEY = 'VOTRE-CLE-ANON-PUBLIQUE';
+
 const TYPES_INCIDENTS = [
-  "Fuite",
-  "Fissure sur génie civil",
-  "Éboulement sur génie civil",
-  "Mauvais état des BR",
-  "Présence importante d'eau au sol",
-  "Déchets au sol",
-  "Autre (préciser)"
+  "Fuite","Fissure sur genie civil","Eboulement sur genie civil",
+  "Mauvais etat des BR","Presence importante d'eau au sol",
+  "Dechets au sol","Autre (preciser)"
 ];
-const CLE_ETAT = "gta1914e_etat";
 const DELAI_MS = 24*3600*1000;
 
+// === ETAT GLOBAL ===
+let sb = null;
+let utilisateur = null;
+let modeHorsLigne = false;
 let etat = { equipe: [], semaines: [], crs: [] };
-let stockageOK = true;
 
-/* ---------- Stockage localStorage (remplace Supabase) ---------- */
-async function lire(cle){
-  try{
-    const v = localStorage.getItem(cle);
-    return v ? JSON.parse(v) : null;
-  }catch(e){
-    stockageOK = false;
-    document.getElementById("bandeauMemoire").style.display = "block";
-    return null;
-  }
-}
-async function ecrire(cle, val){
-  try{
-    localStorage.setItem(cle, JSON.stringify(val));
-    stockageOK = true;
-    document.getElementById("bandeauMemoire").style.display = "none";
-  }catch(e){
-    stockageOK = false;
-    document.getElementById("bandeauMemoire").style.display = "block";
-    throw e;
-  }
-}
-async function supprimerCle(cle){
-  try{ localStorage.removeItem(cle); }catch(e){}
-}
-async function sauver(){ await ecrire(CLE_ETAT, {equipe:etat.equipe, semaines:etat.semaines, crs:etat.crs}); }
-
-/* ---------- Utilitaires ---------- */
+// === UTILITAIRES ===
 const $ = s => document.querySelector(s);
 const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2,7);
 function echap(t){ return String(t??"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
@@ -385,7 +347,172 @@ function compresserImage(fichier){
   });
 }
 
-/* ---------- Navigation ---------- */
+// === STOCKAGE LOCAL (fallback) ===
+const LS_CLE = "gta1914e_etat";
+function lsLire(cle){ try{ const v = localStorage.getItem(cle); return v?JSON.parse(v):null; }catch(e){return null;} }
+function lsEcrire(cle,val){ try{ localStorage.setItem(cle,JSON.stringify(val)); }catch(e){} }
+function lsSuppr(cle){ try{ localStorage.removeItem(cle); }catch(e){} }
+function sauverLocal(){ lsEcrire(LS_CLE, {equipe:etat.equipe, semaines:etat.semaines, crs:etat.crs}); }
+function chargerLocal(){ const d = lsLire(LS_CLE); if(d){ etat.equipe=d.equipe||[]; etat.semaines=d.semaines||[]; etat.crs=d.crs||[]; } }
+
+// === INIT SUPABASE ===
+function initSupabase(){
+  try{
+    if(!window.supabase) return null;
+    if(SUPABASE_URL.includes('VOTRE')) return null;
+    return window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+      auth: { persistSession: true, autoRefreshToken: true }
+    });
+  }catch(e){ console.error("Init Supabase:", e); return null; }
+}
+
+// === AUTH ===
+let modeInscription = false;
+function basculerAuth(){
+  modeInscription = !modeInscription;
+  $("#authTitre").textContent = modeInscription ? "Creer un compte" : "Connexion";
+  $("#btnAuthAction").textContent = modeInscription ? "Creer mon compte" : "Se connecter";
+  $("#authNomBloc").style.display = modeInscription ? "block" : "none";
+  $("#authToggleText").innerHTML = modeInscription
+    ? 'Deja un compte ? <a id="authToggleLink">Se connecter</a>'
+    : 'Pas encore de compte ? <a id="authToggleLink">Creer un compte</a>';
+  $("#authToggleLink").addEventListener("click", basculerAuth);
+}
+
+async function connexion(email, password){
+  if(!sb){ alert("Supabase non configure. Utilisez le mode hors-ligne."); return false; }
+  const { data, error } = await sb.auth.signInWithPassword({ email, password });
+  if(error){ alert("Erreur : " + error.message); return false; }
+  utilisateur = data.user;
+  return true;
+}
+
+async function inscription(email, password, nom){
+  if(!sb){ alert("Supabase non configure. Utilisez le mode hors-ligne."); return false; }
+  const { data, error } = await sb.auth.signUp({
+    email, password, options: { data: { full_name: nom } }
+  });
+  if(error){ alert("Erreur : " + error.message); return false; }
+  if(data.user && !data.session){
+    alert("Compte cree ! Verifiez votre e-mail pour confirmer.");
+  }
+  utilisateur = data.user;
+  return !!data.user;
+}
+
+async function deconnexion(){
+  if(sb) await sb.auth.signOut();
+  utilisateur = null; modeHorsLigne = false;
+  afficherVueAuth();
+}
+
+function afficherVueAuth(){
+  $("#userBar").style.display = "none";
+  $("#mainNav").style.display = "none";
+  document.querySelectorAll(".vue").forEach(v=>v.classList.remove("active"));
+  $("#vue-auth").classList.add("active");
+  $("#bandeauConnexion").style.display = "none";
+  $("#bandeauDeconnecte").style.display = "none";
+  $("#bandeauMemoire").style.display = "none";
+}
+
+function afficherApp(){
+  $("#userBar").style.display = "flex";
+  $("#mainNav").style.display = "flex";
+  $("#userEmail").textContent = utilisateur ? utilisateur.email : "Mode hors-ligne";
+  document.querySelectorAll(".vue").forEach(v=>v.classList.remove("active"));
+  $("#vue-planning").classList.add("active");
+  document.querySelector('nav button[data-vue="planning"]').classList.add("actif");
+  if(modeHorsLigne || !sb){
+    $("#bandeauMemoire").style.display = "block";
+    $("#bandeauConnexion").style.display = "none";
+    $("#syncIndicator").innerHTML = "📴 Hors-ligne";
+  }else{
+    $("#bandeauConnexion").style.display = "block";
+    $("#bandeauMemoire").style.display = "none";
+    $("#syncIndicator").innerHTML = '<span class="sync-dot"></span> Synchro active';
+  }
+  rendrePlanning(); rendreFormulaireCR(); rendreHistorique(); rendreEquipe();
+}
+
+$("#btnAuthAction").addEventListener("click", async ()=>{
+  const email = $("#authEmail").value.trim();
+  const password = $("#authPassword").value;
+  if(!email || !password){ alert("Renseignez l'e-mail et le mot de passe."); return; }
+  if(modeInscription){
+    const nom = $("#authNom").value.trim();
+    const ok = await inscription(email, password, nom);
+    if(ok) afficherApp();
+  }else{
+    const ok = await connexion(email, password);
+    if(ok){ await syncDepuisSupabase(); afficherApp(); }
+  }
+});
+$("#authToggleLink").addEventListener("click", basculerAuth);
+$("#btnDeconnexion").addEventListener("click", deconnexion);
+$("#btnModeHorsLigne").addEventListener("click", ()=>{ modeHorsLigne = true; chargerLocal(); afficherApp(); });
+
+// === SYNC SUPABASE ===
+async function syncDepuisSupabase(){
+  if(!sb || modeHorsLigne) return;
+  try{
+    const { data: equipeData } = await sb.from('equipe').select('*').order('nom');
+    if(equipeData) etat.equipe = equipeData.map(e=>e.nom);
+    const { data: semData } = await sb.from('semaines').select('*').order('lundi');
+    if(semData) etat.semaines = semData.map(s=>({id:s.id, lundi:s.lundi, jours:s.jours||[]}));
+    const { data: crData } = await sb.from('comptes_rendus').select('*').order('cree',{ascending:false});
+    if(crData){
+      etat.crs = crData.map(c=>({
+        id:c.id, date:c.date, secteur:c.secteur, execs:c.execs||[], incidents:c.incidents||[],
+        travaux:c.travaux, incidentDesc:c.incident_desc, obs:c.obs,
+        cree:c.cree, statut:c.statut, envoye:c.envoye, modifie:c.modifie,
+        nbAcces:c.nb_acces, nbIncident:c.nb_incident, auteur:c.auteur
+      }));
+    }
+    sauverLocal();
+    rendrePlanning(); rendreFormulaireCR(); rendreHistorique(); rendreEquipe();
+  }catch(e){ console.error("Sync:", e); }
+}
+
+// === CRUD SUPABASE ===
+async function dbInsert(table, data){
+  if(sb && !modeHorsLigne && utilisateur){ try{ await sb.from(table).insert(data); }catch(e){} }
+}
+async function dbUpdate(table, data, eq){
+  if(sb && !modeHorsLigne && utilisateur){ try{ await sb.from(table).update(data).eq(eq.col, eq.val); }catch(e){} }
+}
+async function dbDelete(table, eq){
+  if(sb && !modeHorsLigne && utilisateur){ try{ await sb.from(table).delete().eq(eq.col, eq.val); }catch(e){} }
+}
+
+// === PHOTOS SUPABASE STORAGE ===
+async function uploadPhoto(crId, type, dataUrl, index){
+  if(!sb || modeHorsLigne) return null;
+  try{
+    const blob = await fetch(dataUrl).then(r=>r.blob());
+    const path = 'cr_' + crId + '/' + type + '_' + index + '.jpg';
+    await sb.storage.from('photos-cr').upload(path, blob, {contentType:'image/jpeg', upsert:true});
+    const { data } = sb.storage.from('photos-cr').getPublicUrl(path);
+    return data.publicUrl;
+  }catch(e){ console.error("Upload:", e); return null; }
+}
+
+async function getPhotosCR(crId){
+  if(!sb || modeHorsLigne) return lsLire("gta1914e_photos_"+crId) || {acces:[],incidents:[]};
+  try{
+    const { data: files } = await sb.storage.from('photos-cr').list('cr_' + crId);
+    if(!files) return {acces:[],incidents:[]};
+    const acces=[], incidents=[];
+    for(const f of files){
+      const { data } = sb.storage.from('photos-cr').getPublicUrl('cr_' + crId + '/' + f.name);
+      if(f.name.startsWith('acces_')) acces.push(data.publicUrl);
+      else if(f.name.startsWith('incident_')) incidents.push(data.publicUrl);
+    }
+    return {acces, incidents};
+  }catch(e){ return {acces:[],incidents:[]}; }
+}
+
+// === NAVIGATION ===
 document.querySelectorAll("nav button").forEach(b=>{
   b.addEventListener("click", ()=>{
     document.querySelectorAll("nav button").forEach(x=>x.classList.remove("actif"));
@@ -395,51 +522,51 @@ document.querySelectorAll("nav button").forEach(b=>{
   });
 });
 
-/* ============================================================
-   PLANNING
-   ============================================================ */
+// === PLANNING ===
 let semaineCourante = null;
-
 function lundiDe(dateISO){
   const d = new Date(dateISO+"T12:00:00");
   const j = (d.getDay()+6)%7;
   d.setDate(d.getDate()-j);
   return d.toISOString().slice(0,10);
 }
+
 $("#btnNouvelleSemaine").addEventListener("click", async ()=>{
-  const saisie = prompt("Date du lundi de la semaine (AAAA-MM-JJ) :", new Date().toISOString().slice(0,10));
+  const saisie = prompt("Date du lundi de la semaine (AAAA-MM-JJ):", new Date().toISOString().slice(0,10));
   if(!saisie) return;
   const lundi = lundiDe(saisie);
   const sem = { id: uid(), lundi, jours: [] };
   etat.semaines.push(sem);
   etat.semaines.sort((a,b)=>a.lundi.localeCompare(b.lundi));
   semaineCourante = sem.id;
-  await sauver(); rendrePlanning();
+  await dbInsert('semaines', {id:sem.id, lundi:sem.lundi, jours:sem.jours});
+  sauverLocal(); rendrePlanning();
 });
+
 $("#btnDupliquerSemaine").addEventListener("click", async ()=>{
   const sem = etat.semaines.find(s=>s.id===semaineCourante);
-  if(!sem){ alert("Aucune semaine à dupliquer."); return; }
-  const saisie = prompt("Date du lundi de la nouvelle semaine (AAAA-MM-JJ) :", new Date().toISOString().slice(0,10));
+  if(!sem){ alert("Aucune semaine a dupliquer."); return; }
+  const saisie = prompt("Date du lundi de la nouvelle semaine (AAAA-MM-JJ):", new Date().toISOString().slice(0,10));
   if(!saisie) return;
   const lundi = lundiDe(saisie);
-  const copie = {
-    id: uid(),
-    lundi,
-    jours: sem.jours.map(j=>({date:"", zone:j.zone||"", execs:[...(j.execs||[])], note:j.note||""}))
-  };
+  const copie = { id: uid(), lundi, jours: sem.jours.map(j=>({date:"", zone:j.zone||"", execs:[...(j.execs||[])], note:j.note||""})) };
   etat.semaines.push(copie);
   etat.semaines.sort((a,b)=>a.lundi.localeCompare(b.lundi));
   semaineCourante = copie.id;
-  await sauver(); rendrePlanning();
+  await dbInsert('semaines', {id:copie.id, lundi:copie.lundi, jours:copie.jours});
+  sauverLocal(); rendrePlanning();
 });
+
 $("#btnSupprSemaine").addEventListener("click", async ()=>{
   const sem = etat.semaines.find(s=>s.id===semaineCourante);
   if(!sem) return;
-  if(!confirm("Supprimer cette semaine et ses journées de terrain ?")) return;
+  if(!confirm("Supprimer cette semaine ?")) return;
   etat.semaines = etat.semaines.filter(s=>s.id!==semaineCourante);
   semaineCourante = etat.semaines.length ? etat.semaines[etat.semaines.length-1].id : null;
-  await sauver(); rendrePlanning();
+  await dbDelete('semaines', {col:'id', val:sem.id});
+  sauverLocal(); rendrePlanning();
 });
+
 $("#selSemaine").addEventListener("change", e=>{ semaineCourante = e.target.value; rendrePlanning(); });
 
 function etiquetteSemaine(s){
@@ -451,34 +578,18 @@ function etiquetteSemaine(s){
 
 function rendrePlanning(){
   const sel = $("#selSemaine");
-  sel.innerHTML = etat.semaines.map(s=>`<option value="${s.id}" ${s.id===semaineCourante?"selected":""}>${etiquetteSemaine(s)}</option>`).join("") || `<option value="">— Aucune semaine créée —</option>`;
+  sel.innerHTML = etat.semaines.map(s=>`<option value="${s.id}" ${s.id===semaineCourante?"selected":""}>${etiquetteSemaine(s)}</option>`).join("") || `<option value="">— Aucune semaine creee —</option>`;
   const cont = $("#conteneurSemaine");
   const sem = etat.semaines.find(s=>s.id===semaineCourante);
-  if(!sem){ cont.innerHTML = `<div class="carte vide">Aucune semaine affichée.<br>Cliquez sur <b>+ Nouvelle semaine</b> pour démarrer le planning.</div>`; return; }
-
-  cont.innerHTML = `<div class="carte">
-    <h3>${etiquetteSemaine(sem)}</h3>
-    <div id="listeJours"></div>
-    <button class="btn btn-sombre btn-petit" id="btnAjoutJour">+ Ajouter une journée de terrain</button>
-  </div>`;
-
+  if(!sem){ cont.innerHTML = `<div class="carte vide">Aucune semaine affichee.<br>Cliquez sur <b>+ Nouvelle semaine</b> pour demarrer.</div>`; return; }
+  cont.innerHTML = `<div class="carte"><h3>${etiquetteSemaine(sem)}</h3><div id="listeJours"></div><button class="btn btn-sombre btn-petit" id="btnAjoutJour">+ Ajouter une journee</button></div>`;
   const lj = $("#listeJours");
   sem.jours.forEach((j,idx)=>{
     const div = document.createElement("div");
     div.className = "jour";
-    div.innerHTML = `
-      <div class="jour-entete">
-        <span class="num">Journée ${idx+1}</span>
-        <input type="date" value="${j.date||""}" data-champ="date">
-        <input type="text" value="${echap(j.zone)}" placeholder="Secteur / galerie prévue *" data-champ="zone" style="flex:1;min-width:180px">
-        <button class="btn btn-danger btn-petit" data-action="supprimer" aria-label="Supprimer cette journée">✕</button>
-      </div>
-      <label style="margin-top:10px">Exécutants affectés</label>
-      <div class="puces" data-role="execs"></div>
-      <label>Consignes du jour</label>
-      <input type="text" value="${echap(j.note)}" placeholder="Ex. : prévoir aide installation lumière + déplacement sphères géomètres" data-champ="note">`;
+    div.innerHTML = `<div class="jour-entete"><span class="num">Journee ${idx+1}</span><input type="date" value="${j.date||""}" data-champ="date"><input type="text" value="${echap(j.zone)}" placeholder="Secteur / galerie prevue *" data-champ="zone" style="flex:1;min-width:180px"><button class="btn btn-danger btn-petit" data-action="supprimer">✕</button></div><label style="margin-top:10px">Executants affectes</label><div class="puces" data-role="execs"></div><label>Consignes du jour</label><input type="text" value="${echap(j.note)}" placeholder="Ex. : prevoir aide installation lumiere" data-champ="note">`;
     const zone = div.querySelector('[data-role="execs"]');
-    if(etat.equipe.length===0) zone.innerHTML = `<span style="color:var(--acier);font-size:13px">Ajoutez d'abord des exécutants dans l'onglet Équipe.</span>`;
+    if(etat.equipe.length===0) zone.innerHTML = `<span style="color:var(--acier);font-size:13px">Ajoutez d'abord des executants dans l'onglet Equipe.</span>`;
     etat.equipe.forEach(nom=>{
       const coche = (j.execs||[]).includes(nom);
       const lab = document.createElement("label");
@@ -488,38 +599,35 @@ function rendrePlanning(){
         j.execs = j.execs||[];
         if(ev.target.checked){ j.execs.push(nom); lab.classList.add("coche"); }
         else { j.execs = j.execs.filter(n=>n!==nom); lab.classList.remove("coche"); }
-        await sauver();
+        await dbUpdate('semaines', {jours:sem.jours}, {col:'id', val:sem.id});
+        sauverLocal();
       });
       zone.appendChild(lab);
     });
     div.querySelectorAll("[data-champ]").forEach(inp=>{
-      inp.addEventListener("change", async ()=>{ j[inp.dataset.champ] = inp.value; await sauver(); });
+      inp.addEventListener("change", async ()=>{ j[inp.dataset.champ] = inp.value; await dbUpdate('semaines', {jours:sem.jours}, {col:'id', val:sem.id}); sauverLocal(); });
     });
     div.querySelector('[data-action="supprimer"]').addEventListener("click", async ()=>{
-      if(!confirm("Supprimer cette journée ?")) return;
-      sem.jours.splice(idx,1); await sauver(); rendrePlanning();
+      if(!confirm("Supprimer cette journee ?")) return;
+      sem.jours.splice(idx,1); await dbUpdate('semaines', {jours:sem.jours}, {col:'id', val:sem.id}); sauverLocal(); rendrePlanning();
     });
     lj.appendChild(div);
   });
-
   $("#btnAjoutJour").addEventListener("click", async ()=>{
     sem.jours.push({date:"", zone:"", execs:[], note:""});
-    await sauver(); rendrePlanning();
+    await dbUpdate('semaines', {jours:sem.jours}, {col:'id', val:sem.id});
+    sauverLocal(); rendrePlanning();
   });
 }
 
-/* ============================================================
-   NOUVEAU CR
-   ============================================================ */
-let photosAcces = [];
-let photosIncident = [];
-let idCREnEdition = null;
+// === NOUVEAU CR ===
+let photosAcces = [], photosIncident = [], idCREnEdition = null;
 
 function rendreFormulaireCR(){
   if(!$("#crDate").value) $("#crDate").value = new Date().toISOString().slice(0,10);
   const zone = $("#crExecutants");
   zone.innerHTML = "";
-  if(etat.equipe.length===0) zone.innerHTML = `<span style="color:var(--acier);font-size:13px">Ajoutez des exécutants dans l'onglet Équipe.</span>`;
+  if(etat.equipe.length===0) zone.innerHTML = `<span style="color:var(--acier);font-size:13px">Ajoutez des executants dans l'onglet Equipe.</span>`;
   etat.equipe.forEach(nom=>{
     const lab = document.createElement("label");
     lab.className = "puce";
@@ -551,7 +659,7 @@ async function chargerCRPourEdition(cr){
   document.querySelectorAll("#crIncidents input").forEach(i=>{
     if(cr.incidents.includes(i.value)){ i.checked = true; i.closest("label").classList.add("coche"); }
   });
-  const photos = await lire("gta1914e_photos_"+cr.id) || {acces:[],incidents:[]};
+  const photos = await getPhotosCR(cr.id);
   photosAcces.length = 0; photosAcces.push(...photos.acces);
   photosIncident.length = 0; photosIncident.push(...photos.incidents);
   rendreVignettes("#vignAcces", photosAcces);
@@ -563,20 +671,17 @@ async function chargerCRPourEdition(cr){
 function brancherPhotos(idZone, idInput, idVign, tableau){
   $(idZone).addEventListener("click", ()=>$(idInput).click());
   $(idInput).addEventListener("change", async ev=>{
-    for(const f of ev.target.files){
-      tableau.push(await compresserImage(f));
-    }
+    for(const f of ev.target.files) tableau.push(await compresserImage(f));
     ev.target.value = "";
     rendreVignettes(idVign, tableau);
   });
 }
 function rendreVignettes(idVign, tableau){
-  const v = $(idVign);
-  v.innerHTML = "";
+  const v = $(idVign); v.innerHTML = "";
   tableau.forEach((src,i)=>{
     const d = document.createElement("div");
     d.className = "vignette";
-    d.innerHTML = `<img src="${src}" alt="photo ${i+1}"><button title="Retirer" aria-label="Retirer cette photo">✕</button>`;
+    d.innerHTML = `<img src="${src}" alt="photo ${i+1}"><button title="Retirer" aria-label="Retirer">✕</button>`;
     d.querySelector("button").addEventListener("click", ()=>{ tableau.splice(i,1); rendreVignettes(idVign,tableau); });
     v.appendChild(d);
   });
@@ -599,62 +704,49 @@ $("#btnViderCR").addEventListener("click", ()=>{ if(confirm("Vider le formulaire
 $("#btnEnregistrerCR").addEventListener("click", async ()=>{
   const execs = [...document.querySelectorAll("#crExecutants input:checked")].map(i=>i.value);
   const incidents = [...document.querySelectorAll("#crIncidents input:checked")].map(i=>i.value);
-  if(!$("#crSecteur").value.trim()){ alert("Indiquez le secteur / la galerie concernée."); return; }
+  if(!$("#crSecteur").value.trim()){ alert("Indiquez le secteur."); return; }
   if(incidents.length && !$("#crIncidentDesc").value.trim()){
-    alert("Un incident est coché. Vous devez obligatoirement décrire la nature et la localisation de l'incident.");
-    $("#crIncidentDesc").focus();
-    return;
+    alert("Un incident est coche. Decrivez-le obligatoirement.");
+    $("#crIncidentDesc").focus(); return;
   }
-
+  const crId = idCREnEdition || uid();
+  const crData = {
+    id: crId, date: $("#crDate").value, secteur: $("#crSecteur").value.trim(),
+    execs, incidents, travaux: $("#crTravaux").value.trim(),
+    incident_desc: $("#crIncidentDesc").value.trim(),
+    obs: $("#crObs").value.trim(),
+    nb_acces: photosAcces.length, nb_incident: photosIncident.length,
+    auteur: utilisateur ? utilisateur.email : "hors-ligne"
+  };
   if(idCREnEdition){
     const cr = etat.crs.find(c=>c.id===idCREnEdition);
     if(cr){
-      Object.assign(cr, {
-        date: $("#crDate").value,
-        secteur: $("#crSecteur").value.trim(),
-        execs, incidents,
-        travaux: $("#crTravaux").value.trim(),
-        incidentDesc: $("#crIncidentDesc").value.trim(),
-        obs: $("#crObs").value.trim(),
-        nbAcces: photosAcces.length,
-        nbIncident: photosIncident.length,
-        modifie: Date.now()
-      });
-      await ecrire("gta1914e_photos_"+cr.id, {acces:[...photosAcces], incidents:[...photosIncident]});
-      await sauver();
+      Object.assign(cr, {date:crData.date, secteur:crData.secteur, execs, incidents, travaux:crData.travaux, incidentDesc:crData.incident_desc, obs:crData.obs, nbAcces:crData.nb_acces, nbIncident:crData.nb_incident, modifie:Date.now()});
+      await dbUpdate('comptes_rendus', {date:crData.date, secteur:crData.secteur, execs, incidents, travaux:crData.travaux, incident_desc:crData.incident_desc, obs:crData.obs, nb_acces:crData.nb_acces, nb_incident:crData.nb_incident, modifie:Date.now()}, {col:'id', val:crId});
     }
   } else {
-    const cr = {
-      id: uid(),
-      date: $("#crDate").value,
-      secteur: $("#crSecteur").value.trim(),
-      execs, incidents,
-      travaux: $("#crTravaux").value.trim(),
-      incidentDesc: $("#crIncidentDesc").value.trim(),
-      obs: $("#crObs").value.trim(),
-      cree: Date.now(),
-      statut: "brouillon",
-      nbAcces: photosAcces.length,
-      nbIncident: photosIncident.length
-    };
-    etat.crs.unshift(cr);
-    await ecrire("gta1914e_photos_"+cr.id, {acces:[...photosAcces], incidents:[...photosIncident]});
-    await sauver();
+    crData.cree = Date.now(); crData.statut = "brouillon";
+    etat.crs.unshift({id:crId, date:crData.date, secteur:crData.secteur, execs, incidents, travaux:crData.travaux, incidentDesc:crData.incident_desc, obs:crData.obs, cree:crData.cree, statut:"brouillon", nbAcces:crData.nb_acces, nbIncident:crData.nb_incident, auteur:crData.auteur});
+    await dbInsert('comptes_rendus', crData);
   }
-  viderFormulaire();
-  rendreHistorique();
+  // Upload photos
+  if(sb && !modeHorsLigne){
+    for(let i=0; i<photosAcces.length; i++) if(photosAcces[i].startsWith('data:')) await uploadPhoto(crId, 'acces', photosAcces[i], i);
+    for(let i=0; i<photosIncident.length; i++) if(photosIncident[i].startsWith('data:')) await uploadPhoto(crId, 'incident', photosIncident[i], i);
+  } else {
+    lsEcrire("gta1914e_photos_"+crId, {acces:[...photosAcces], incidents:[...photosIncident]});
+  }
+  viderFormulaire(); sauverLocal(); rendreHistorique();
   document.querySelector('nav button[data-vue="historique"]').click();
 });
 
-/* ============================================================
-   HISTORIQUE
-   ============================================================ */
+// === HISTORIQUE ===
 function texteDelai(cr){
-  if(cr.statut==="envoye") return {txt:"Envoyé", cls:"badge-ok"};
+  if(cr.statut==="envoye") return {txt:"Envoye", cls:"badge-ok"};
   const restant = cr.cree + DELAI_MS - Date.now();
-  if(restant <= 0) return {txt:"Délai 24 h dépassé", cls:"badge-urgent"};
+  if(restant <= 0) return {txt:"Delai 24 h depasse", cls:"badge-urgent"};
   const h = Math.floor(restant/3600000), m = Math.floor((restant%3600000)/60000);
-  return {txt:`À envoyer — reste ${h} h ${String(m).padStart(2,"0")} min`, cls: restant<6*3600000 ? "badge-urgent" : "badge-delai"};
+  return {txt:`A envoyer — reste ${h} h ${String(m).padStart(2,"0")} min`, cls: restant<6*3600000 ? "badge-urgent" : "badge-delai"};
 }
 
 function crsFiltres(){
@@ -677,13 +769,10 @@ function rendreHistorique(){
   $("#compteurCR").textContent = etat.crs.length ? "("+etat.crs.length+")" : "";
   const urgent = etat.crs.some(cr => cr.statut!=="envoye" && (cr.cree + DELAI_MS - Date.now()) <= 6*3600000);
   $("#pastilleUrgent").style.display = urgent ? "inline-block" : "none";
-
   const l = $("#listeCR");
-  if(etat.crs.length===0){ l.innerHTML = `<div class="carte vide">Aucun compte-rendu enregistré.<br>Créez-en un depuis l'onglet <b>Nouveau CR</b>.</div>`; return; }
-
+  if(etat.crs.length===0){ l.innerHTML = `<div class="carte vide">Aucun compte-rendu enregistre.</div>`; return; }
   const liste = crsFiltres();
   if(liste.length===0){ l.innerHTML = `<div class="carte vide">Aucun CR ne correspond aux filtres.</div>`; return; }
-
   l.innerHTML = "";
   liste.forEach(cr=>{
     const d = texteDelai(cr);
@@ -692,33 +781,32 @@ function rendreHistorique(){
     div.innerHTML = `
       <div class="infos">
         <div class="titre">CR du ${frDate(cr.date)}</div>
-        <div class="meta">${echap(cr.secteur)} · ${cr.execs.length ? echap(cr.execs.join(", ")) : "exécutants non renseignés"} · ${cr.nbAcces+cr.nbIncident} photo(s)</div>
+        <div class="meta">${echap(cr.secteur)} · ${cr.execs.length ? echap(cr.execs.join(", ")) : "non renseignes"} · ${cr.nbAcces+cr.nbIncident} photo(s) ${cr.auteur ? "· par "+echap(cr.auteur) : ""}</div>
         <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
           <span class="badge ${d.cls}">${d.txt}</span>
           ${cr.incidents.length ? `<span class="badge badge-incident">${cr.incidents.length} incident(s)</span>` : `<span class="badge badge-ras">RAS</span>`}
         </div>
       </div>
       <div class="actions" style="margin-top:0">
-        <button class="btn btn-sombre btn-petit" data-a="imprimer">Aperçu / PDF</button>
-        <button class="btn btn-hv btn-petit" data-a="email">Préparer l'e-mail</button>
+        <button class="btn btn-sombre btn-petit" data-a="imprimer">Apercu / PDF</button>
+        <button class="btn btn-hv btn-petit" data-a="email">Preparer e-mail</button>
         <button class="btn btn-ligne btn-petit" data-a="modifier">Modifier</button>
-        ${cr.statut==="envoye"
-          ? `<button class="btn btn-ligne btn-petit" data-a="annuler-envoi">Annuler l'envoi</button>`
-          : `<button class="btn btn-ligne btn-petit" data-a="envoye">Marquer envoyé</button>`}
+        ${cr.statut==="envoye" ? `<button class="btn btn-ligne btn-petit" data-a="annuler-envoi">Annuler envoi</button>` : `<button class="btn btn-ligne btn-petit" data-a="envoye">Marquer envoye</button>`}
         <button class="btn btn-danger btn-petit" data-a="supprimer">Supprimer</button>
       </div>`;
     div.querySelector('[data-a="imprimer"]').addEventListener("click", ()=>imprimerCR(cr));
     div.querySelector('[data-a="email"]').addEventListener("click", ()=>preparerEmail(cr));
     div.querySelector('[data-a="modifier"]').addEventListener("click", ()=>chargerCRPourEdition(cr));
     const bE = div.querySelector('[data-a="envoye"]');
-    if(bE) bE.addEventListener("click", async ()=>{ cr.statut="envoye"; cr.envoye=Date.now(); await sauver(); rendreHistorique(); });
+    if(bE) bE.addEventListener("click", async ()=>{ cr.statut="envoye"; cr.envoye=Date.now(); await dbUpdate('comptes_rendus',{statut:"envoye",envoye:cr.envoye},{col:'id',val:cr.id}); sauverLocal(); rendreHistorique(); });
     const bA = div.querySelector('[data-a="annuler-envoi"]');
-    if(bA) bA.addEventListener("click", async ()=>{ cr.statut="brouillon"; delete cr.envoye; await sauver(); rendreHistorique(); });
+    if(bA) bA.addEventListener("click", async ()=>{ cr.statut="brouillon"; delete cr.envoye; await dbUpdate('comptes_rendus',{statut:"brouillon",envoye:null},{col:'id',val:cr.id}); sauverLocal(); rendreHistorique(); });
     div.querySelector('[data-a="supprimer"]').addEventListener("click", async ()=>{
-      if(!confirm("Supprimer définitivement ce CR ?")) return;
+      if(!confirm("Supprimer definitivement ce CR ?")) return;
       etat.crs = etat.crs.filter(c=>c.id!==cr.id);
-      await supprimerCle("gta1914e_photos_"+cr.id);
-      await sauver(); rendreHistorique();
+      await dbDelete('comptes_rendus',{col:'id',val:cr.id});
+      lsSuppr("gta1914e_photos_"+cr.id);
+      sauverLocal(); rendreHistorique();
     });
     l.appendChild(div);
   });
@@ -733,16 +821,11 @@ $("#btnReinitFiltres").addEventListener("click", ()=>{
 setInterval(()=>{ if(document.getElementById("vue-historique").classList.contains("active")) rendreHistorique(); }, 30000);
 
 function exporterCSV(){
-  const lignes = [["Date","Secteur","Exécutants","Statut","Incidents","Nb incidents","Nb photos"]];
+  const lignes = [["Date","Secteur","Executants","Statut","Incidents","Nb incidents","Nb photos","Auteur"]];
   etat.crs.forEach(cr=>{
-    lignes.push([
-      cr.date, cr.secteur, cr.execs.join(" / "),
-      cr.statut==="envoye" ? "Envoyé" : "À envoyer",
-      cr.incidents.length ? cr.incidents.join(" / ") : "RAS",
-      cr.incidents.length, cr.nbAcces + cr.nbIncident
-    ]);
+    lignes.push([cr.date, cr.secteur, cr.execs.join(" / "), cr.statut==="envoye" ? "Envoye" : "A envoyer", cr.incidents.length ? cr.incidents.join(" / ") : "RAS", cr.incidents.length, cr.nbAcces + cr.nbIncident, cr.auteur || ""]);
   });
-  const csv = lignes.map(l => l.map(v => `"${String(v).replace(/"/g,'""')}"`).join(";")).join(String.fromCharCode(13,10));
+  const csv = lignes.map(l => l.map(v => '"' + String(v).replace(/"/g,'""') + '"').join(";")).join(String.fromCharCode(13,10));
   const blob = new Blob(["\uFEFF"+csv], {type:"text/csv;charset=utf-8;"});
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
@@ -751,206 +834,99 @@ function exporterCSV(){
 }
 $("#btnExporterCSV").addEventListener("click", exporterCSV);
 
-/* ---------- Export PDF avec jsPDF ---------- */
 async function exporterPDF(cr){
-  const photos = await lire("gta1914e_photos_"+cr.id) || {acces:[],incidents:[]};
+  const photos = await getPhotosCR(cr.id);
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
-
-  // En-tête
-  doc.setFillColor(33,38,43);
-  doc.rect(0,0,210,25,"F");
-  doc.setTextColor(245,196,0);
-  doc.setFontSize(18);
-  doc.setFont("helvetica", "bold");
+  doc.setFillColor(33,38,43); doc.rect(0,0,210,25,"F");
+  doc.setTextColor(245,196,0); doc.setFontSize(18); doc.setFont("helvetica","bold");
   doc.text("GTA ENERGIES", 14, 16);
-  doc.setTextColor(255,255,255);
-  doc.setFontSize(10);
-  doc.setFont("helvetica", "normal");
-  doc.text("Mission 1914_E — Relevé des galeries & égouts", 14, 22);
-
-  // Titre
-  doc.setTextColor(33,38,43);
-  doc.setFontSize(14);
-  doc.setFont("helvetica", "bold");
+  doc.setTextColor(255,255,255); doc.setFontSize(10); doc.setFont("helvetica","normal");
+  doc.text("Mission 1914_E — Releve des galeries & egouts", 14, 22);
+  doc.setTextColor(33,38,43); doc.setFontSize(14); doc.setFont("helvetica","bold");
   doc.text("Compte-rendu d'intervention", 14, 35);
-  doc.setFontSize(10);
-  doc.setFont("helvetica", "normal");
+  doc.setFontSize(10); doc.setFont("helvetica","normal");
   doc.text("CR du " + frDate(cr.date), 14, 41);
-
-  // Tableau info
   let y = 50;
-  const infos = [
-    ["Mission", "1914_E — Relevé des galeries et égouts"],
-    ["Date", frDate(cr.date)],
-    ["Secteur / galerie", cr.secteur],
-    ["Exécutants", cr.execs.join(", ") || "—"],
-    ["Destinataire", "Mario DE JESUS (GTA GE) — m.dejesus@gtage.fr"],
-    ["Statut incidents", cr.incidents.length ? cr.incidents.length + " incident(s)" : "RAS"]
-  ];
-
+  const infos = [["Mission","1914_E — Releve des galeries et egouts"],["Date",frDate(cr.date)],["Secteur",cr.secteur],["Executants",cr.execs.join(", ") || "—"],["Destinataire","Mario DE JESUS (GTA GE) — m.dejesus@gtage.fr"],["Statut incidents",cr.incidents.length ? cr.incidents.length + " incident(s)" : "RAS"]];
   infos.forEach(([label, val])=>{
-    doc.setFillColor(241,242,239);
-    doc.rect(14, y, 60, 8, "F");
-    doc.setTextColor(33,38,43);
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(9);
+    doc.setFillColor(241,242,239); doc.rect(14, y, 60, 8, "F");
+    doc.setTextColor(33,38,43); doc.setFont("helvetica","bold"); doc.setFontSize(9);
     doc.text(label, 16, y+5.5);
-    doc.setFont("helvetica", "normal");
+    doc.setFont("helvetica","normal");
     doc.text(String(val).substring(0, 80), 76, y+5.5);
     y += 9;
   });
-
-  // Travaux
   y += 4;
-  doc.setFillColor(33,38,43);
-  doc.rect(14, y, 182, 7, "F");
-  doc.setTextColor(255,255,255);
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(10);
+  doc.setFillColor(33,38,43); doc.rect(14, y, 182, 7, "F");
+  doc.setTextColor(255,255,255); doc.setFont("helvetica","bold"); doc.setFontSize(10);
   doc.text("2. TRAVAUX REALISES", 16, y+5);
   y += 10;
-  doc.setTextColor(33,38,43);
-  doc.setFont("helvetica", "normal");
+  doc.setTextColor(33,38,43); doc.setFont("helvetica","normal");
   const travaux = doc.splitTextToSize(cr.travaux || "—", 170);
-  doc.text(travaux, 16, y);
-  y += travaux.length * 5 + 6;
-
-  // Incidents
-  doc.setFillColor(33,38,43);
-  doc.rect(14, y, 182, 7, "F");
-  doc.setTextColor(255,255,255);
-  doc.setFont("helvetica", "bold");
+  doc.text(travaux, 16, y); y += travaux.length * 5 + 6;
+  doc.setFillColor(33,38,43); doc.rect(14, y, 182, 7, "F");
+  doc.setTextColor(255,255,255); doc.setFont("helvetica","bold");
   doc.text("3. INCIDENTS REMARQUES", 16, y+5);
   y += 10;
-  doc.setTextColor(33,38,43);
-  doc.setFont("helvetica", "normal");
+  doc.setTextColor(33,38,43); doc.setFont("helvetica","normal");
   if(cr.incidents.length){
-    cr.incidents.forEach(inc=>{
-      doc.text("• " + inc, 16, y);
-      y += 5;
-    });
+    cr.incidents.forEach(inc=>{ doc.text("• " + inc, 16, y); y += 5; });
     const desc = doc.splitTextToSize(cr.incidentDesc || "—", 170);
-    doc.text(desc, 16, y);
-    y += desc.length * 5 + 4;
-  } else {
-    doc.text("Rien à signaler.", 16, y);
-    y += 8;
-  }
-
-  // Observations
-  doc.setFillColor(33,38,43);
-  doc.rect(14, y, 182, 7, "F");
-  doc.setTextColor(255,255,255);
-  doc.setFont("helvetica", "bold");
+    doc.text(desc, 16, y); y += desc.length * 5 + 4;
+  } else { doc.text("Rien a signaler.", 16, y); y += 8; }
+  doc.setFillColor(33,38,43); doc.rect(14, y, 182, 7, "F");
+  doc.setTextColor(255,255,255); doc.setFont("helvetica","bold");
   doc.text("4. OBSERVATIONS & SUITES", 16, y+5);
   y += 10;
   doc.setTextColor(33,38,43);
   const obs = doc.splitTextToSize(cr.obs || "—", 170);
   doc.text(obs, 16, y);
-
-  // Pied de page
-  doc.setFontSize(8);
-  doc.setTextColor(150);
-  doc.text("Dossier : N:\\DOSSIERS 2026\\1914_E\\Travail\\SAU - preparation terrain", 14, 285);
-  doc.text("Généré le " + new Date().toLocaleDateString("fr-FR") + " à " + new Date().toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"}), 14, 290);
-
+  doc.setFontSize(8); doc.setTextColor(150);
+  doc.text("Dossier : N:\\\\DOSSIERS 2026\\\\1914_E\\\\Travail\\\\SAU - preparation terrain", 14, 285);
+  doc.text("Genere le " + new Date().toLocaleDateString("fr-FR") + " a " + new Date().toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"}), 14, 290);
   doc.save("CR_"+cr.date+"_"+cr.secteur.replace(/\s+/g,"_").substring(0,30)+".pdf");
 }
 $("#btnExporterPDF").addEventListener("click", ()=>{
   const liste = crsFiltres();
-  if(liste.length===0){ alert("Aucun CR à exporter."); return; }
-  if(liste.length===1){
-    exporterPDF(liste[0]);
-  } else {
-    const choix = liste.map((cr,i)=>`${i+1}. ${cr.date} — ${cr.secteur}`).join(String.fromCharCode(10));
-    const rep = prompt("Plusieurs CR correspondent. Entrez le numéro à exporter :" + String.fromCharCode(10) + choix);
+  if(liste.length===0){ alert("Aucun CR a exporter."); return; }
+  if(liste.length===1){ exporterPDF(liste[0]); }
+  else {
+    const choix = liste.map((cr,i)=>(i+1)+": "+cr.date+" — "+cr.secteur).join(String.fromCharCode(10));
+    const rep = prompt("Plusieurs CR. Entrez le numero a exporter:" + String.fromCharCode(10) + choix);
     const idx = parseInt(rep,10)-1;
     if(idx>=0 && idx<liste.length) exporterPDF(liste[idx]);
   }
 });
 
 function preparerEmail(cr){
-  const sujet = `CR intervention ${cr.date} — ${cr.secteur} — Mission 1914_E`;
-  const corps =
-`Bonjour Monsieur DE JESUS,
-
-Veuillez trouver ci-joint le compte-rendu de l'intervention du ${frDate(cr.date)} (secteur : ${cr.secteur}).
-
-Exécutants : ${cr.execs.join(", ") || "—"}
-Incidents remarqués : ${cr.incidents.length ? cr.incidents.join(" ; ") : "RAS"}
-${cr.incidentDesc ? "Détail : " + cr.incidentDesc : ""}
-
-Le CR au format PDF ainsi que les photos (BR accès et incidents) sont joints à ce message.
-
-Cordialement,`;
+  const sujet = "CR intervention "+cr.date+" — "+cr.secteur+" — Mission 1914_E";
+  const corps = "Bonjour Monsieur DE JESUS,\n\nVeuillez trouver ci-joint le compte-rendu de l'intervention du "+frDate(cr.date)+" (secteur : "+cr.secteur+").\n\nExecutants : "+(cr.execs.join(", ") || "—")+"\nIncidents remarques : "+(cr.incidents.length ? cr.incidents.join(" ; ") : "RAS")+"\n"+(cr.incidentDesc ? "Detail : "+cr.incidentDesc : "")+"\n\nLe CR au format PDF ainsi que les photos sont joints a ce message.\n\nCordialement,";
   location.href = "mailto:m.dejesus@gtage.fr?subject="+encodeURIComponent(sujet)+"&body="+encodeURIComponent(corps);
-  alert("N'oubliez pas de joindre le PDF du CR (bouton Aperçu / PDF) et les photos à l'e-mail.");
+  alert("N'oubliez pas de joindre le PDF et les photos a l'e-mail.");
 }
 
 async function imprimerCR(cr){
-  const photos = await lire("gta1914e_photos_"+cr.id) || {acces:[],incidents:[]};
+  const photos = await getPhotosCR(cr.id);
   const z = $("#zoneImpression");
-  const badgeIncidents = cr.incidents.length
-    ? `<span class="badge-print">${cr.incidents.length} incident(s) remarqué(s)</span>`
-    : `<span class="badge-print badge-print-ok">RAS — rien à signaler</span>`;
-  z.innerHTML = `
-  <div class="page-cr">
-    <h1>GTA Energies — Compte-rendu d'intervention</h1>
-    <div class="sous-entete">Mission 1914_E — Relevé des galeries & égouts &nbsp;·&nbsp; CR du ${frDate(cr.date)}</div>
-    <div class="hazard"></div>
-
-    <div class="section-titre">1. Informations de l'intervention</div>
-    <table>
-      <tr><th>Mission</th><td>1914_E — Relevé des galeries et égouts</td></tr>
-      <tr><th>Maître d'ouvrage</th><td>GTA Energies</td></tr>
-      <tr><th>Date d'intervention</th><td>${frDate(cr.date)}</td></tr>
-      <tr><th>Secteur / galerie / ouvrage</th><td>${echap(cr.secteur)}</td></tr>
-      <tr><th>Exécutants présents</th><td>${echap(cr.execs.join(", ")||"—")}</td></tr>
-      <tr><th>Destinataire du CR</th><td>Mario DE JESUS (GTA GE) — m.dejesus@gtage.fr</td></tr>
-      <tr><th>Délai d'envoi contractuel</th><td>24 h après l'intervention</td></tr>
-      <tr><th>Statut incidents</th><td>${badgeIncidents}</td></tr>
-    </table>
-
-    <div class="section-titre">2. Travaux réalisés</div>
-    <div class="contenu-section">${echap(cr.travaux||"—").replace(/\\n/g,"<br>")}</div>
-
-    <div class="section-titre">3. Photos BR accès (vue panoramique)</div>
-    <div class="contenu-section">
-      ${photos.acces.length ? `<div class="photos-print">${photos.acces.map(s=>`<img src="${s}">`).join("")}</div>` : "Aucune photo."}
-    </div>
-
-    <div class="section-titre">4. Incidents remarqués</div>
-    <div class="contenu-section">
-      ${cr.incidents.length
-        ? `<ul style="margin-left:16px">${cr.incidents.map(i=>`<li>${echap(i)}</li>`).join("")}</ul>
-           <div style="margin-top:6px">${echap(cr.incidentDesc||"—").replace(/\\n/g,"<br>")}</div>
-           ${photos.incidents.length ? `<div class="photos-print" style="margin-top:8px">${photos.incidents.map(s=>`<img src="${s}">`).join("")}</div>` : ""}`
-        : "Rien à signaler."}
-    </div>
-
-    <div class="section-titre">5. Observations & suites à donner</div>
-    <div class="contenu-section">${echap(cr.obs||"—").replace(/\\n/g,"<br>")}</div>
-
-    <p style="margin-top:16px;color:#555;font-size:11px">Dossier : N:\\DOSSIERS 2026\\1914_E\\Travail\\SAU - preparation terrain — CR généré le ${new Date().toLocaleDateString("fr-FR")} à ${new Date().toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"})}.</p>
-  </div>`;
+  const badgeIncidents = cr.incidents.length ? `<span class="badge-print">${cr.incidents.length} incident(s)</span>` : `<span class="badge-print badge-print-ok">RAS</span>`;
+  z.innerHTML = `<div class="page-cr"><h1>GTA Energies — Compte-rendu d'intervention</h1><div class="sous-entete">Mission 1914_E — Releve des galeries & egouts · CR du ${frDate(cr.date)}</div><div class="hazard"></div><div class="section-titre">1. Informations</div><table><tr><th>Mission</th><td>1914_E</td></tr><tr><th>Date</th><td>${frDate(cr.date)}</td></tr><tr><th>Secteur</th><td>${echap(cr.secteur)}</td></tr><tr><th>Executants</th><td>${echap(cr.execs.join(", ")||"—")}</td></tr><tr><th>Destinataire</th><td>Mario DE JESUS — m.dejesus@gtage.fr</td></tr><tr><th>Statut</th><td>${badgeIncidents}</td></tr></table><div class="section-titre">2. Travaux realises</div><div class="contenu-section">${echap(cr.travaux||"—").replace(/\\n/g,"<br>")}</div><div class="section-titre">3. Photos BR acces</div><div class="contenu-section">${photos.acces.length ? `<div class="photos-print">${photos.acces.map(s=>`<img src="${s}">`).join("")}</div>` : "Aucune photo."}</div><div class="section-titre">4. Incidents</div><div class="contenu-section">${cr.incidents.length ? `<ul style="margin-left:16px">${cr.incidents.map(i=>`<li>${echap(i)}</li>`).join("")}</ul><div style="margin-top:6px">${echap(cr.incidentDesc||"—").replace(/\\n/g,"<br>")}</div>${photos.incidents.length ? `<div class="photos-print" style="margin-top:8px">${photos.incidents.map(s=>`<img src="${s}">`).join("")}</div>` : ""}` : "Rien a signaler."}</div><div class="section-titre">5. Observations</div><div class="contenu-section">${echap(cr.obs||"—").replace(/\\n/g,"<br>")}</div><p style="margin-top:16px;color:#555;font-size:11px">Dossier : N:\\\\DOSSIERS 2026\\\\1914_E\\\\Travail\\\\SAU - preparation terrain — Genere le ${new Date().toLocaleDateString("fr-FR")} a ${new Date().toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"})}.</p></div>`;
   window.print();
 }
 
-/* ============================================================
-   ÉQUIPE
-   ============================================================ */
+// === EQUIPE ===
 function rendreEquipe(){
   const l = $("#listeEquipe");
-  l.innerHTML = etat.equipe.length ? "" : `<span style="color:var(--acier)">Aucun exécutant enregistré.</span>`;
+  l.innerHTML = etat.equipe.length ? "" : `<span style="color:var(--acier)">Aucun executant enregistre.</span>`;
   etat.equipe.forEach(nom=>{
     const p = document.createElement("span");
     p.className = "puce";
-    p.innerHTML = `${echap(nom)} <button style="border:none;background:none;cursor:pointer;color:var(--alerte);font-weight:700" aria-label="Retirer ${echap(nom)}">✕</button>`;
+    p.innerHTML = `${echap(nom)} <button style="border:none;background:none;cursor:pointer;color:var(--alerte);font-weight:700">✕</button>`;
     p.querySelector("button").addEventListener("click", async ()=>{
-      if(!confirm("Retirer "+nom+" de l'équipe ?")) return;
+      if(!confirm("Retirer "+nom+" ?")) return;
       etat.equipe = etat.equipe.filter(n=>n!==nom);
-      await sauver(); rendreEquipe(); rendreFormulaireCR(); rendrePlanning();
+      await dbDelete('equipe', {col:'nom', val:nom});
+      sauverLocal(); rendreEquipe(); rendreFormulaireCR(); rendrePlanning();
     });
     l.appendChild(p);
   });
@@ -959,50 +935,46 @@ $("#btnAjoutExec").addEventListener("click", async ()=>{
   const nom = $("#nvExec").value.trim();
   if(!nom) return;
   const existeDeja = etat.equipe.some(n => n.toLowerCase() === nom.toLowerCase());
-  if(existeDeja){ alert("Cet exécutant existe déjà dans l'équipe."); $("#nvExec").value=""; return; }
+  if(existeDeja){ alert("Cet executant existe deja."); $("#nvExec").value=""; return; }
   etat.equipe.push(nom);
   $("#nvExec").value = "";
-  await sauver(); rendreEquipe(); rendreFormulaireCR(); rendrePlanning();
+  await dbInsert('equipe', {nom});
+  sauverLocal(); rendreEquipe(); rendreFormulaireCR(); rendrePlanning();
 });
 $("#nvExec").addEventListener("keydown", e=>{ if(e.key==="Enter") $("#btnAjoutExec").click(); });
 
-/* ============================================================
-   EXPORT / IMPORT
-   ============================================================ */
+// === EXPORT / IMPORT ===
 async function exporterDonnees(){
   const photos = {};
   for(const cr of etat.crs){
-    photos[cr.id] = await lire("gta1914e_photos_"+cr.id) || {acces:[],incidents:[]};
+    photos[cr.id] = await getPhotosCR(cr.id) || {acces:[],incidents:[]};
   }
-  const paquet = {
-    export_le: new Date().toISOString(),
-    equipe: etat.equipe,
-    semaines: etat.semaines,
-    crs: etat.crs,
-    photos
-  };
+  const paquet = { export_le: new Date().toISOString(), equipe: etat.equipe, semaines: etat.semaines, crs: etat.crs, photos };
   const blob = new Blob([JSON.stringify(paquet,null,2)], {type:"application/json"});
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
-  a.href = url;
-  a.download = "gta1914e_sauvegarde_"+new Date().toISOString().slice(0,10)+".json";
-  a.click();
-  URL.revokeObjectURL(url);
+  a.href = url; a.download = "gta1914e_sauvegarde_"+new Date().toISOString().slice(0,10)+".json";
+  a.click(); URL.revokeObjectURL(url);
 }
 async function importerDonnees(fichier){
   let paquet;
   try{ paquet = JSON.parse(await fichier.text()); }
   catch(e){ alert("Fichier invalide."); return; }
-  if(!confirm("L'import va remplacer toutes les données actuelles (équipe, planning, CR). Continuer ?")) return;
+  if(!confirm("L'import remplace toutes les donnees. Continuer ?")) return;
   etat.equipe = paquet.equipe || [];
   etat.semaines = paquet.semaines || [];
   etat.crs = paquet.crs || [];
-  await sauver();
-  for(const id in (paquet.photos||{})){
-    await ecrire("gta1914e_photos_"+id, paquet.photos[id]);
+  sauverLocal();
+  for(const id in (paquet.photos||{})){ lsEcrire("gta1914e_photos_"+id, paquet.photos[id]); }
+  if(sb && !modeHorsLigne){
+    for(const nom of etat.equipe) await dbInsert('equipe', {nom});
+    for(const s of etat.semaines) await dbInsert('semaines', {id:s.id, lundi:s.lundi, jours:s.jours});
+    for(const c of etat.crs){
+      await dbInsert('comptes_rendus', {id:c.id, date:c.date, secteur:c.secteur, execs:c.execs, incidents:c.incidents, travaux:c.travaux, incident_desc:c.incidentDesc, obs:c.obs, cree:c.cree, statut:c.statut, envoye:c.envoye, modifie:c.modifie, nb_acces:c.nbAcces, nb_incident:c.nbIncident, auteur:c.auteur});
+    }
   }
   rendrePlanning(); rendreFormulaireCR(); rendreHistorique(); rendreEquipe();
-  alert("Import terminé.");
+  alert("Import termine.");
 }
 $("#btnExporter").addEventListener("click", exporterDonnees);
 $("#btnImporter").addEventListener("click", ()=>$("#fichImport").click());
@@ -1012,21 +984,18 @@ $("#fichImport").addEventListener("change", async e=>{
   e.target.value = "";
 });
 
-/* ============================================================
-   Initialisation
-   ============================================================ */
+// === INITIALISATION ===
 (async function init(){
-  const sauvegarde = await lire(CLE_ETAT);
-  if(sauvegarde){
-    etat.equipe = sauvegarde.equipe||[];
-    etat.semaines = sauvegarde.semaines||[];
-    etat.crs = sauvegarde.crs||[];
-  }
+  sb = initSupabase();
+  chargerLocal();
   if(etat.semaines.length) semaineCourante = etat.semaines[etat.semaines.length-1].id;
-  rendrePlanning();
-  rendreFormulaireCR();
-  rendreHistorique();
-  rendreEquipe();
+  // Verifier session existante
+  if(sb){
+    try{
+      const { data } = await sb.auth.getSession();
+      if(data.session){ utilisateur = data.session.user; await syncDepuisSupabase(); afficherApp(); }
+    }catch(e){}
+  }
 })();
 </script>
 </body>
