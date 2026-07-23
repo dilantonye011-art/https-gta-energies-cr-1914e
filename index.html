@@ -147,7 +147,6 @@
   }
 </style>
 <base target="_blank">
-<base target="_blank">
 </head>
 <body>
 
@@ -408,7 +407,7 @@ let signatureData = null;
 
 const $ = s => document.querySelector(s);
 const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2,7);
-function echap(t){ return String(t??"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",""":"&quot;"}[c])); }
+function echap(t){ return String(t??"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
 function frDate(iso){
   if(!iso) return "—";
   const d = new Date(iso + (iso.length===10 ? "T12:00:00" : ""));
@@ -1232,7 +1231,7 @@ async function imprimerCR(cr){
   const photos = await getPhotosCR(cr.id);
   const z = $("#zoneImpression");
   const badgeIncidents = cr.incidents.length ? `<span class="badge-print">${cr.incidents.length} incident(s)</span>` : `<span class="badge-print badge-print-ok">RAS</span>`;
-  const typeLabel = cr.type === 'minutes' ? 'MINUTES DE CHANTIER' : 'COMPTE-RENDU D'INTERVENTION';
+  const typeLabel = cr.type === 'minutes' ? 'MINUTES DE CHANTIER' : "COMPTE-RENDU D'INTERVENTION";
 
   z.innerHTML = `<div class="page-cr">
     <div class="header-print">
